@@ -282,9 +282,8 @@ instruções SQL ainda não apresentadas nas aulas).*/
 
 -- Consulta com LIMIT (limia o número de resultados para 5)
 -- Pegando apenas os 5 primeiros
-SELECT Produto.descricao, ItemVenda.quantidade, ItemVenda.valor_total
+SELECT Produto.descricao
 FROM Produto
-JOIN ItemVenda ON Produto.id_produto = ItemVenda.id_produto
 ORDER BY Produto.descricao ASC
 LIMIT 5;
 
