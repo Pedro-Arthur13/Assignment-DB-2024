@@ -256,7 +256,7 @@ WHERE Cliente.id_cliente NOT IN (Select id_cliente From Venda); -- ubconsulta qu
 /*Recupere todas as informações dos vendedores juntamente com todas as informações das 
 vendas realizadas por cada um. A consulta deverá manter todos os vendedores, até mesmo 
 aqueles que não efetuaram vendas.*/
-SELECT Vendedor.*, Venda.*, Cliente.nome AS nome_cliente, Produto.descricao AS nome_produto
+SELECT Vendedor.*, Venda.id_venda,Venda.data,Venda.id_cliente,Venda.desconto, Cliente.nome AS nome_cliente, Produto.descricao AS nome_produto
 FROM Vendedor
 LEFT JOIN Venda ON Vendedor.id_vendedor = Venda.id_vendedor
 LEFT JOIN Cliente ON Venda.id_cliente = Cliente.id_cliente
