@@ -189,9 +189,8 @@ FROM Cliente
 JOIN Venda ON Cliente.id_cliente = Venda.id_cliente
 JOIN ItemVenda ON Venda.id_venda = ItemVenda.id_venda
 JOIN Produto ON ItemVenda.id_produto = Produto.id_produto
-GROUP BY Cliente.nome
-HAVING SUM(ItemVenda.quantidade) > 3
-ORDER BY Cliente.nome, Produto.descricao;
+WHERE ItemVenda.quantidade > 3  -- Filtra as compras onde a quantidade é maior que 3
+ORDER BY ItemVenda.quantidade, Cliente.nome, Produto.descricao;
 ```
 
 ---
@@ -344,6 +343,10 @@ ORDER BY Produto.descricao ASC;
 ### 16. **Exemplos de atualização de dados.**
 
 #### a) **Atualizando o preço das frutas de acordo com a quantidade de produtos no estoque:**
+- Se o estoque for maior que 50, aumenta 10%  
+- Se o estoque for entre 30 e 50, aumenta em 7%  
+- Se o estoque for menor que 30, aumenta em 5%.
+
 ```sql
 UPDATE Produto
 SET preco = 
@@ -395,5 +398,7 @@ WHERE id_cliente NOT IN (SELECT DISTINCT id_cliente FROM Venda);
 ```
 
 ---
+**Aviso:**
+Todos os dados apresentados neste documento são **fictícios** e foram criados **apenas para fins de exemplo e educação**. As consultas, valores e tabelas não representam dados reais e são usadas unicamente para demonstrar conceitos e práticas de SQL.
 
 
