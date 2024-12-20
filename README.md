@@ -310,9 +310,8 @@ WHERE Cliente.nome = 'Janderson';
 
 #### a) **Consulta com `LIMIT` (limita o número de resultados para 5):**
 ```sql
-SELECT Produto.descricao, ItemVenda.quantidade, ItemVenda.valor_total
+SELECT Produto.descricao
 FROM Produto
-JOIN ItemVenda ON Produto.id_produto = ItemVenda.id_produto
 ORDER BY Produto.descricao ASC
 LIMIT 5;
 ```
